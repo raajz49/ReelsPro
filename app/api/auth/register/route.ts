@@ -12,15 +12,18 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
-    await connectToDatabase();
-    const exisitingUser = await User.findOne({ email });
 
-    if (exisitingUser) {
+    await connectToDatabase();
+
+    // Check if user already exists
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
       return NextResponse.json(
-        { error: "Email is already registered" },
+        { error: "Email already registered" },
         { status: 400 }
       );
     }
+
     await User.create({
       email,
       password,

@@ -3,6 +3,7 @@
 import { apiClient } from "@/lib/api-client";
 import { IVideo } from "@/models/Video";
 import { useEffect, useState } from "react";
+import VideoFeed from "./components/VideoFeed";
 
 export default function Home() {
   const [videos, setVideos] = useState<IVideo[]>([]);
@@ -19,8 +20,9 @@ export default function Home() {
     fetchVideos();
   }, []);
   return (
-    <div>
-      <h1>Raj Koirala</h1>
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold mb-8">Raj Koirala</h1>
+      <VideoFeed videos={videos} />
     </div>
   );
 }

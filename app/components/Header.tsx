@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
-import { Home, User } from "lucide-react";
+import { AudioWaveform, User } from "lucide-react";
 import { useNotification } from "./Notification";
 
 export default function Header() {
@@ -26,12 +26,10 @@ export default function Header() {
             href="/"
             className="btn btn-ghost text-xl gap-2 normal-case font-bold"
             prefetch={true}
-            onClick={() =>
-              showNotification("Welcome to ImageKit ReelsPro", "info")
-            }
+            onClick={() => showNotification("Welcome to Tictac", "info")}
           >
-            <Home className="w-5 h-5" />
-            ImageKit ReelsPro
+            <AudioWaveform className="w-5 h-5" />
+            TicTac
           </Link>
         </div>
         <div className="flex flex-1 justify-end px-2">
